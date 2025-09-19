@@ -180,7 +180,7 @@ class JambonzInputTransport(BaseInputTransport):
         self._initialized = True
 
         if self._params.serializer:
-            await self._params.serializer.setup(frame, sample_rate=self.sample_rate)
+            await self._params.serializer.setup(frame)
         if not self._monitor_websocket_task and self._params.session_timeout:
             self._monitor_websocket_task = self.create_task(self._monitor_websocket())
         await self._client.trigger_client_connected()
